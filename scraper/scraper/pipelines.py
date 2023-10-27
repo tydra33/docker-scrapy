@@ -11,7 +11,7 @@ import psycopg2
 class FlatsPipeline:
     def __init__(self):
         db_config = {
-            "host": "luxonis-database-1",  # not localhost
+            "host": "docker-scrapy-database-1",  # not localhost
             "port": "5432",
             "database": "flats_db",
             "user": "postgres",
