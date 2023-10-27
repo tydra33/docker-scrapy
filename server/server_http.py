@@ -5,7 +5,7 @@ import psycopg2
 
 
 db_config = {
-    "host": "luxonis-database-1",
+    "host": "docker-scrapy-database-1",
     "port": "5432",
     "database": "flats_db",
     "user": "postgres",
