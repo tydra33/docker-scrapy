@@ -1,0 +1,28 @@
+services:
+  database:
+    image: postgres
+    ports:
+      - 8005:8042
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ardit33
+      POSTGRES_DB: flats_db
+
+  scrapy:
+    build: ./scraper
+    volumes:
+      - ./scraper:/usr/src/scraper
+    ports:
+      - 8000:5000
+    depends_on:
+      - database
+
+  server:
+    build: ./server
+    volumes:
+      - ./server:/usr/src/server
+    ports:
+      - 8080:8080
+    depends_on:
+      - scrapy
